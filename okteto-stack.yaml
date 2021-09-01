@@ -11,12 +11,8 @@ services:
     ports:
       - 8080:8080
     resources:
-      reservations:
-        cpu: 300m
-        memory: 500Mi
-      limits:
-        cpu: 500m
-        memory: 800Mi
+      cpu: 300m
+      memory: 500Mi
     deploy:
       restart_policy:
         condition: on-failure
