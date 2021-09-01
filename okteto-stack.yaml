@@ -1,0 +1,23 @@
+name: app-vue
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - /data
+    replicas: 1
+    ports:
+      - 8080:8080
+    resources:
+      reservations:
+        cpu: 300m
+        memory: 500Mi
+      limits:
+        cpu: 500m
+        memory: 800Mi
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
