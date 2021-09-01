@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: dev
     volumes:
       - /data
     replicas: 1
@@ -13,7 +12,3 @@ services:
     resources:
       cpu: 300m
       memory: 500Mi
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
