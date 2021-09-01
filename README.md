@@ -1,4 +1,5 @@
-# 03-fundamentos
+# Fundamentos VUE - IndecisionApp
+## Curso Vue.js: De cero a experto con el Profe Fernando Herrera @Fernando_Her85
 
 ## Project setup
 ```
