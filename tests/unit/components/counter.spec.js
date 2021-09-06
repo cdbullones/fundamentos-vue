@@ -82,6 +82,39 @@ describe('Counter Component', () => {
         expect( value ).toBe("101")
         
     })
+
+
+    test('debe de establecer el valor por defecto', () => {
+
+        const { start } = wrapper.props()
+
+        //const start = wrapper.props('start')
+
+        const value = wrapper.find('[data-testid="counter"]').text()
+
+        //typeof type in js
+
+        expect( Number(value) ).toBe( start )
+        
+    })
+
+    test('debe mostrar la prop title', () => {
+
+        const title = 'Hola Mundo!!!'
+
+        const wrapper = shallowMount( Counter, {
+            props: {
+                title
+            }
+        } )
+
+        console.log( wrapper.html() )
+
+        expect( wrapper.find( 'h2' ).text() ).toBe( title )
+        
+    })
+    
+    
     
     
     
