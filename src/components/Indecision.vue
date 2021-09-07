@@ -16,7 +16,6 @@
           <h1>{{ answer }}</h1>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -32,16 +31,25 @@ export default {
   },
   methods: {
       async getAnswer(){
-            this.answer = 'Pensando...'
-            //Destructuring
-            const {answer, image} = await fetch('https://yesno.wtf/api').then( r => r.json() )
-            this.answer = answer === 'yes' ? 'Si!' : 'No!'  
-            this.img = image
+            try {
+                this.answer = 'Pensando...'
+                //Destructuring
+                const {answer, image} = await fetch('https://yesno.wtf/api').then( r => r.json() )
+                this.answer = answer === 'yes' ? 'Si!' : 'No!'  
+                this.img = image
+
+            } catch (error) {
+                console.log('IndecisionComponent: ', error)
+                this.answer = 'No se pudo cargar del API'  
+                this.img = null
+            }
       }
   },
   watch: {
       question(value){
             this.isValidQuestion = false
+
+            console.log({ value })
           
             if( !value.includes('?') ) return
 
